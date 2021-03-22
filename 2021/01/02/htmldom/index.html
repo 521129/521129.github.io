@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTMLDOM | LH</title><meta name="keywords" content="JavaScript"><meta name="author" content="lihao,1767359165@qq.com"><meta name="copyright" content="lihao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="HTML DOM 简介HTML DOM定义了访问和操作HTML文档标准 如果想要学习该知识用该具备的知识：  HTML CSS JavaScript  什么是DOM？DOM是W3C（万维网联盟）的标准。 DOM定义了访问HTML和XML文档的标准： “W3C文档对象模型（DOM）是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。” W3C DOM标准被分为3个不同的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTMLDOM">
+<meta property="og:url" content="https://lh521.top/2021/01/02/htmldom/index.html">
+<meta property="og:site_name" content="LH">
+<meta property="og:description" content="HTML DOM 简介HTML DOM定义了访问和操作HTML文档标准 如果想要学习该知识用该具备的知识：  HTML CSS JavaScript  什么是DOM？DOM是W3C（万维网联盟）的标准。 DOM定义了访问HTML和XML文档的标准： “W3C文档对象模型（DOM）是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。” W3C DOM标准被分为3个不同的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png">
+<meta property="article:published_time" content="2021-01-02T19:10:00.000Z">
+<meta property="article:modified_time" content="2021-03-22T04:15:55.455Z">
+<meta property="article:author" content="lihao">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lh521.top/2021/01/02/htmldom/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-22 04:15:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="iron-container iron-circle"><div class="iron-box1 iron-circle iron-center"></div><div class="iron-box2 iron-circle iron-center"></div><div class="iron-box3 iron-circle iron-center"></div><div class="iron-box4 iron-circle iron-center"></div><div class="iron-box5 iron-circle iron-center"></div><div class="iron-box6 iron-circle"><div class="iron-coil" style="--i: 0"></div><div class="iron-coil" style="--i: 1"></div><div class="iron-coil" style="--i: 2"></div><div class="iron-coil" style="--i: 3"></div><div class="iron-coil" style="--i: 4"></div><div class="iron-coil" style="--i: 5"></div><div class="iron-coil" style="--i: 6"></div><div class="iron-coil" style="--i: 7"></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bb/"><i class="fa-fw fas fa-music"></i><span> 点点滴滴</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page" href="/xingkong/"><i class="fa-fw fa fa-heartbeat"></i><span> 星空物语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">LH</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bb/"><i class="fa-fw fas fa-music"></i><span> 点点滴滴</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page" href="/xingkong/"><i class="fa-fw fa fa-heartbeat"></i><span> 星空物语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTMLDOM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-02T19:10:00.000Z" title="发表于 2021-01-02 19:10:00">2021-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-22T04:15:55.455Z" title="更新于 2021-03-22 04:15:55">2021-03-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="HTML-DOM-简介"><a href="#HTML-DOM-简介" class="headerlink" title="HTML DOM 简介"></a>HTML DOM 简介</h1><p><strong>HTML DOM定义了访问和操作HTML文档标准</strong></p>
+<p>如果想要学习该知识用该具备的知识：</p>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+<h1 id="什么是DOM？"><a href="#什么是DOM？" class="headerlink" title="什么是DOM？"></a>什么是DOM？</h1><p><strong>DOM是W3C（万维网联盟）的标准。</strong></p>
+<p>DOM定义了访问HTML和XML文档的标准：</p>
+<p>“W3C文档对象模型（DOM）是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。”</p>
+<p>W3C DOM标准被分为3个不同的部分：</p>
+<ul>
+<li>核心DOM - 针对任何结构化文档的标准模型</li>
+<li>XML DOM - 针对XML文档的标准模型</li>
+<li>HTML DOM - 针对HTML文档的标准模型</li>
+</ul>
+<h1 id="什么是HTML-DOM？"><a href="#什么是HTML-DOM？" class="headerlink" title="什么是HTML DOM？"></a>什么是HTML DOM？</h1><p>HTML DOM是：</p>
+<ul>
+<li>HTML的标准对象模型</li>
+<li>HTML的标准编程接口</li>
+<li>W3C标准</li>
+</ul>
+<p>HTML DOM定义了所有HTML元素的<strong>对象</strong>和<strong>属性</strong>，以及访问他们的<strong>方法</strong>。</p>
+<p><strong>HTML DOM是关于如何获取、修改、添加或删除HTML元素的标准。</strong></p>
+<h1 id="HTML-DOM节点"><a href="#HTML-DOM节点" class="headerlink" title="HTML DOM节点"></a>HTML DOM节点</h1><p><strong>在HTML DOM中，所有事物都是节点。DOM是被视为节点树的HTML。</strong></p>
+<h2 id="DOM节点"><a href="#DOM节点" class="headerlink" title="DOM节点"></a>DOM节点</h2><p>根据W3C的HTML DOM标准，HTML文档中的所有内容都是节点：</p>
+<ul>
+<li>整个文档是一个文档节点</li>
+<li>每个HTML元素是元素节点</li>
+<li>HTML元素内的文本是文本节点</li>
+<li>每个HTML属性是属性节点</li>
+<li>注释是注释节点</li>
+</ul>
+<h2 id="HTML-DOM节点树"><a href="#HTML-DOM节点树" class="headerlink" title="HTML DOM节点树"></a>HTML DOM节点树</h2><p>HTML DOM将HTML文档视作树结构，这种接否被称为<strong>节点树：</strong></p>
+<p><strong>HTML DOM Tree实例</strong></p>
+<p><img src= "https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/loading.gif" data-lazy-src="https://www.w3school.com.cn/i/ct_htmltree.gif#alt=HTML%20DOM"></p>
+<p>通过HTML DOM，树中的所有节点均可通过JavaScript进行访问。所有HTML元素（节点）均可被修改，也可以被创建和删除。</p>
+<h2 id="节点父、子和同胞"><a href="#节点父、子和同胞" class="headerlink" title="节点父、子和同胞"></a>节点父、子和同胞</h2><p>节点树中的节点彼此拥有层级关系。</p>
+<p>父（parent）、子（child）和同胞（sibling）等术语用于描述这些关系。父节点拥有子节点。同级的子节点被称为同胞节点（兄弟或姐妹）。</p>
+<ul>
+<li>在节点树中，顶端节点被称为根（root）</li>
+<li>每个节点都有父节点、除了根节点（他没有父节点）</li>
+<li>一个节点可拥有任意数量的子</li>
+<li>同胞是拥有形同父节点的节点</li>
+</ul>
+<p>树的一部分，以及节点之间的关系：</p>
+<p><img src= "https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/loading.gif" data-lazy-src="https://www.w3school.com.cn/i/dom_navigate.gif#alt=%E8%8A%82%E7%82%B9%20%E5%85%B3%E7%B3%BB"></p>
+<p><strong>看下面的HTML代码片段：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>DOM 教程<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>第一课<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">P</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的HTML中：</p>
+<ul>
+<li><p>节点没有父节点；它是根节点</p>
+</li>
+<li><p>和的父节点是节点</p>
+</li>
+<li><p>文本节点”Hello world!”的父节点是节点</p>
+</li>
+</ul>
+<p>并且：</p>
+<ul>
+<li> 节点拥有两个子节点：和</li>
+<li>节点拥有一个子节点：节点</li>
+<li>&lt;title&gt;节点也拥有一个子节点：文本节点”DOM教程”</li>
+<li>&lt;h1&gt;和节点是同胞节点，同时也是的子节点</li>
+</ul>
+<h1 id="HTML-DOM-方法"><a href="#HTML-DOM-方法" class="headerlink" title="HTML DOM 方法"></a>HTML DOM 方法</h1><p><strong>方法是我们可以在节点（HTML元素）上执行的动作。</strong></p>
+<h2 id="编程接口"><a href="#编程接口" class="headerlink" title="编程接口"></a>编程接口</h2><p>可以通过JavaScript（以及其他编程语言）对HTML DOM进行访问。</p>
+<p>所有HTML元素被定义为对象，而编程接口则是对象方法和对象属性。</p>
+<p>方法是您能够执行的动作（比如添加或修改元素）</p>
+<p>属性是您能够获取或设置的值（比如节点的名称或内容）。</p>
+<h3 id="getElementById-方法"><a href="#getElementById-方法" class="headerlink" title="getElementById()方法"></a>getElementById()方法</h3><p>getElementById()方法返回带有指定ID的元素：</p>
+<p><strong>例子</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(<span class="string">&quot;intro&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="HTML-DOM对象-方法和属性"><a href="#HTML-DOM对象-方法和属性" class="headerlink" title="HTML DOM对象 - 方法和属性"></a>HTML DOM对象 - 方法和属性</h3><p>一些常用的HTML DOM方法：</p>
+<ul>
+<li>getElementById(id) - 获取带有指定ID的节点（元素）</li>
+<li>appendChild(node) - 插入新的子节点（元素）</li>
+<li>removeChild(node) - 删除子节点（元素）</li>
+</ul>
+<p>一些常用的HTML DOM属性：</p>
+<ul>
+<li>innerHTML - 节点（元素）的文本值</li>
+<li>parentNode - 节点（元素）的父节点</li>
+<li>childNodes - 节点（元素）的子节点</li>
+<li>attribute - 节点（元素）的属性节点</li>
+</ul>
+<h2 id="一些DOM对象方法"><a href="#一些DOM对象方法" class="headerlink" title="一些DOM对象方法"></a>一些DOM对象方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getElementById()</td>
+<td>返回带有指定ID的元素</td>
+</tr>
+<tr>
+<td>getElementByTagName()</td>
+<td>返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。</td>
+</tr>
+<tr>
+<td>getElementByClassName()</td>
+<td>返回包含带有指定雷鸣的所有的节点列表</td>
+</tr>
+<tr>
+<td>appendChild()</td>
+<td>把新的子节点添加到指定节点。</td>
+</tr>
+<tr>
+<td>removeChild()</td>
+<td>删除子节点 。</td>
+</tr>
+<tr>
+<td>replaceChild()</td>
+<td>替换子节点</td>
+</tr>
+<tr>
+<td>insertBefore()</td>
+<td>在指定的子节点前面插入新的子节点</td>
+</tr>
+<tr>
+<td>createAttribute()</td>
+<td>创建属性节点</td>
+</tr>
+<tr>
+<td>createElement()</td>
+<td>创建元素节点</td>
+</tr>
+<tr>
+<td>createTextNode()</td>
+<td>创建文本节点</td>
+</tr>
+<tr>
+<td>getAttribute()</td>
+<td>返回指定属性值</td>
+</tr>
+<tr>
+<td>setAttribute()</td>
+<td>把指定属性设置或修改为指定的值</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:1767359165@qq.com">lihao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lh521.top/2021/01/02/htmldom/">https://lh521.top/2021/01/02/htmldom/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lh521.top" target="_blank">LH</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/02/javascript-shu-zu/"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JavaScript变量、数组</div></div></a></div><div class="next-post pull-right"><a href="/2020/12/30/javascript-shu-zu-qu-chong/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-gj956e_1920x1080.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JavaScript数组去重</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/01/14/es6-zhi-array.from-fang-fa/" title="ES6之Array.frome()方法"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-gj956e_1920x1080.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div><div class="title">ES6之Array.frome()方法</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">lihao</div><div class="author-info__description">千磨万击还坚劲，任尔东西南北风</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/LHNB521"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/LHNB521" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML-DOM-%E7%AE%80%E4%BB%8B"><span class="toc-text">HTML DOM 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFDOM%EF%BC%9F"><span class="toc-text">什么是DOM？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHTML-DOM%EF%BC%9F"><span class="toc-text">什么是HTML DOM？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML-DOM%E8%8A%82%E7%82%B9"><span class="toc-text">HTML DOM节点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM%E8%8A%82%E7%82%B9"><span class="toc-text">DOM节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-DOM%E8%8A%82%E7%82%B9%E6%A0%91"><span class="toc-text">HTML DOM节点树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E7%88%B6%E3%80%81%E5%AD%90%E5%92%8C%E5%90%8C%E8%83%9E"><span class="toc-text">节点父、子和同胞</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML-DOM-%E6%96%B9%E6%B3%95"><span class="toc-text">HTML DOM 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3"><span class="toc-text">编程接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getElementById-%E6%96%B9%E6%B3%95"><span class="toc-text">getElementById()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-DOM%E5%AF%B9%E8%B1%A1-%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="toc-text">HTML DOM对象 - 方法和属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9BDOM%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-text">一些DOM对象方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/03/22/css-xuan-ze-qi-xiang-jie-ji-quan-chong/" title="👴🏿CSS选择器详解及权重"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-q6gor5_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="👴🏿CSS选择器详解及权重"/></a><div class="content"><a class="title" href="/2021/03/22/css-xuan-ze-qi-xiang-jie-ji-quan-chong/" title="👴🏿CSS选择器详解及权重">👴🏿CSS选择器详解及权重</a><time datetime="2021-03-22T12:00:00.000Z" title="发表于 2021-03-22 12:00:00">2021-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/22/css-yang-shi-fu-dong/" title="🎈CSS样式----浮动"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-gj956e_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="🎈CSS样式----浮动"/></a><div class="content"><a class="title" href="/2021/03/22/css-yang-shi-fu-dong/" title="🎈CSS样式----浮动">🎈CSS样式----浮动</a><time datetime="2021-03-22T10:00:00.000Z" title="发表于 2021-03-22 10:00:00">2021-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-yi/" title="阿里云服务器Linux系统中搭建Java Web环境（一）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-6q7wow_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里云服务器Linux系统中搭建Java Web环境（一）"/></a><div class="content"><a class="title" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-yi/" title="阿里云服务器Linux系统中搭建Java Web环境（一）">阿里云服务器Linux系统中搭建Java Web环境（一）</a><time datetime="2021-03-17T14:14:00.000Z" title="发表于 2021-03-17 14:14:00">2021-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-er/" title="阿里云服务器Linux系统中搭建Java Web环境（二）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里云服务器Linux系统中搭建Java Web环境（二）"/></a><div class="content"><a class="title" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-er/" title="阿里云服务器Linux系统中搭建Java Web环境（二）">阿里云服务器Linux系统中搭建Java Web环境（二）</a><time datetime="2021-03-17T14:13:00.000Z" title="发表于 2021-03-17 14:13:00">2021-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/09/es6-shu-zhi-de-kuo-zhan/" title="ES6数值的扩展"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6数值的扩展"/></a><div class="content"><a class="title" href="/2021/03/09/es6-shu-zhi-de-kuo-zhan/" title="ES6数值的扩展">ES6数值的扩展</a><time datetime="2021-03-09T10:44:54.000Z" title="发表于 2021-03-09 10:44:54">2021-03-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By lihao</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script></div><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'lDobFwQLFcnz4yK58fQosgWV-gzGzoHsz',
+      appKey: 'UwqhtHozxle3aJU3a9emNAsa',
+      placeholder: '请留下你的足迹。。',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/bb/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JavaScript变量、数组 | LH</title><meta name="keywords" content="js"><meta name="author" content="lihao,1767359165@qq.com"><meta name="copyright" content="lihao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JS变量、数组一，变量1.ECMAScript的变量是松散型变量。 松散型变量：可以用来保存任何类型的数据，换句话来说，每个变量仅仅是一个用于保存的占位符而而已。 定义变量要是用var操作符。（var是一个关键字），后跟变量名（既是一个标识符）。如下： 1var message; 改代码就是定义了一个名字为message的变量，该变量可以保存任何类型的数据。注意：既用var操作符定义的变量将成为该">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript变量、数组">
+<meta property="og:url" content="https://lh521.top/2021/01/02/javascript-shu-zu/index.html">
+<meta property="og:site_name" content="LH">
+<meta property="og:description" content="JS变量、数组一，变量1.ECMAScript的变量是松散型变量。 松散型变量：可以用来保存任何类型的数据，换句话来说，每个变量仅仅是一个用于保存的占位符而而已。 定义变量要是用var操作符。（var是一个关键字），后跟变量名（既是一个标识符）。如下： 1var message; 改代码就是定义了一个名字为message的变量，该变量可以保存任何类型的数据。注意：既用var操作符定义的变量将成为该">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png">
+<meta property="article:published_time" content="2021-01-02T19:22:00.000Z">
+<meta property="article:modified_time" content="2021-03-22T04:15:55.455Z">
+<meta property="article:author" content="lihao">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lh521.top/2021/01/02/javascript-shu-zu/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-22 04:15:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="iron-container iron-circle"><div class="iron-box1 iron-circle iron-center"></div><div class="iron-box2 iron-circle iron-center"></div><div class="iron-box3 iron-circle iron-center"></div><div class="iron-box4 iron-circle iron-center"></div><div class="iron-box5 iron-circle iron-center"></div><div class="iron-box6 iron-circle"><div class="iron-coil" style="--i: 0"></div><div class="iron-coil" style="--i: 1"></div><div class="iron-coil" style="--i: 2"></div><div class="iron-coil" style="--i: 3"></div><div class="iron-coil" style="--i: 4"></div><div class="iron-coil" style="--i: 5"></div><div class="iron-coil" style="--i: 6"></div><div class="iron-coil" style="--i: 7"></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bb/"><i class="fa-fw fas fa-music"></i><span> 点点滴滴</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page" href="/xingkong/"><i class="fa-fw fa fa-heartbeat"></i><span> 星空物语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">LH</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bb/"><i class="fa-fw fas fa-music"></i><span> 点点滴滴</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page" href="/xingkong/"><i class="fa-fw fa fa-heartbeat"></i><span> 星空物语</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaScript变量、数组</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-02T19:22:00.000Z" title="发表于 2021-01-02 19:22:00">2021-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-22T04:15:55.455Z" title="更新于 2021-03-22 04:15:55">2021-03-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="JS变量、数组"><a href="#JS变量、数组" class="headerlink" title="JS变量、数组"></a>JS变量、数组</h1><h2 id="一，变量"><a href="#一，变量" class="headerlink" title="一，变量"></a>一，变量</h2><p>1.ECMAScript的变量是松散型变量。</p>
+<p>松散型变量：可以用来保存任何类型的数据，换句话来说，每个变量仅仅是一个用于保存的占位符而而已。</p>
+<p>定义变量要是用var操作符。（var是一个关键字），后跟变量名（既是一个标识符）。<br>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message;</span><br></pre></td></tr></table></figure>
+<p>改代码就是定义了一个名字为message的变量，该变量可以保存任何类型的数据。<br><strong>注意：</strong><em>既用var操作符定义的变量将成为该变量的作用域的局部变量。</em><br>如果在函数中使用var定义一个变量，那么这个变量在函数退出后就会被销毁。<br>例如<em>;</em><br>错误例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> message=<span class="string">&quot;hi&quot;</span>;<span class="comment">//局部变量</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">alert(message);<span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+<p>正确例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> message=<span class="string">&quot;hi&quot;</span>;</span><br><span class="line">  alert(message);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+<h2 id="二-数据类型"><a href="#二-数据类型" class="headerlink" title="二.数据类型"></a>二.数据类型</h2><p>1.ECMAScript中有<strong>5中简单的数据类型（也称为基本数据类型）</strong>；<br><strong>5种数据类型:Undefind,NULL,Boolean,Number,String.</strong><br><strong>还有一种复杂的数据类型：</strong>Object，（Object 本质上是由一组无序的名值对组成的。ECMAScript<br>不支持任何创建自定义类型的机制，而所有值最终都将是上述 6 种数据类型之一。）<br>1.注意：对为声明的变量，执行typeof操作符都返回了undefined值。<br><em>即便未初始化的变量会自动被赋予 undefined 值，但显式地初始化变量依然是</em><br><em>明智的选择。如果能够做到这一点，那么当 typeof 操作符返回 “undefined” 值时，</em><br><em>我们就知道被检测的变量还没有被声明，而不是尚未初始化。</em><br>如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message; <span class="comment">// 这个变量声明之后默认取得了 undefined 值</span></span><br><span class="line"><span class="comment">// 下面这个变量并没有声明</span></span><br><span class="line"><span class="comment">// var age</span></span><br><span class="line">alert(<span class="keyword">typeof</span> message); <span class="comment">// &quot;undefined&quot;</span></span><br><span class="line">alert(<span class="keyword">typeof</span> age); <span class="comment">// &quot;undefined&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三-字符串"><a href="#三-字符串" class="headerlink" title="三.字符串"></a>三.字符串</h2><p>1.要把多个字符串连起来可以用+号链接；<br>2.如果变量需要连接，用+号就比较麻烦，ES6新增一种模板字符串，表示方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">&quot;小明&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> age=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> message=<span class="string">&#x27;你好,$&#123;name&#125;,你今年$&#123;age&#125;岁了！&#x27;</span>;</span><br><span class="line">alert(message);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-toUpperCase"><a href="#3-toUpperCase" class="headerlink" title="3.toUpperCase"></a>3.toUpperCase</h4><p>toUpperCase()把一个字符串全部变成大写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">s.toUpperCase();<span class="comment">//\返回“HELLO”</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-toLowerCase"><a href="#4-toLowerCase" class="headerlink" title="4.toLowerCase"></a>4.toLowerCase</h4><p>toLowerCAse()把一个字符串全变成小写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">&quot;HELLO&quot;</span>;</span><br><span class="line">s.toLowerCase();<span class="comment">//返回“hello”</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-indexOf"><a href="#5-indexOf" class="headerlink" title="5.indexOf"></a>5.indexOf</h4><p>indexOf()会搜索指定的字符串出现的位置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">&quot;hello,word&quot;</span>;</span><br><span class="line">s.indexOf(<span class="string">&quot;world&quot;</span>);<span class="comment">//返回7</span></span><br><span class="line">s.indexOf(<span class="string">&quot;World&quot;</span>);<span class="comment">//没有找到的字符串，返回-1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-substring"><a href="#6-substring" class="headerlink" title="6.substring"></a>6.substring</h4><p>substring()返回指定索引区间的字符串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">&quot;hello,word&quot;</span>;</span><br><span class="line">s.substring(<span class="number">0</span>,<span class="number">5</span>);<span class="comment">//从索引0开始到5（不包括5），返回“hello”</span></span><br><span class="line">s.substring(<span class="number">7</span>);<span class="comment">//从索引7开始到结束，返回“world”</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四-数组"><a href="#四-数组" class="headerlink" title="四.数组"></a>四.数组</h2><p>1.在js中数组可以包含任何类型的数据类型，并通过索引来访问每个元素。<br>取得他的长度直接访问length属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">14</span>,<span class="string">&quot;hello&quot;</span>,<span class="literal">null</span>,<span class="literal">true</span>];</span><br><span class="line">arr.length;<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：如果给arr.length附一个新的值会导致arr大小变化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.length; <span class="comment">// 3</span></span><br><span class="line">arr.length = <span class="number">6</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2, 3, undefined, undefined, undefined]</span></span><br><span class="line">arr.length = <span class="number">2</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-indexOf"><a href="#2-indexOf" class="headerlink" title="2.indexOf"></a>2.indexOf</h4><p>与String类似，arr也可以通过indexOf()来搜索一个指定的元素的位置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="string">&#x27;30&#x27;</span>, <span class="string">&#x27;xyz&#x27;</span>];</span><br><span class="line">arr.indexOf(<span class="number">10</span>); <span class="comment">// 元素10的索引为0</span></span><br><span class="line">arr.indexOf(<span class="number">20</span>); <span class="comment">// 元素20的索引为1</span></span><br><span class="line">arr.indexOf(<span class="number">30</span>); <span class="comment">// 元素30没有找到，返回-1</span></span><br><span class="line">arr.indexOf(<span class="string">&#x27;30&#x27;</span>); <span class="comment">// 元素&#x27;30&#x27;的索引为2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-slice"><a href="#3-slice" class="headerlink" title="3.slice"></a>3.slice</h4><p>slice()就是对应String的substring（）版本，他截取arr的部分元素，然后返回一个新的arr：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>];</span><br><span class="line">arr.slice(<span class="number">0</span>, <span class="number">3</span>); <span class="comment">// 从索引0开始，到索引3结束，但不包括索引3: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br><span class="line">arr.slice(<span class="number">3</span>); <span class="comment">// 从索引3开始到结束: [&#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>注意：slice()的起止包括开始不包括结束。<br>如果不给slice（）传递参数，他就会从头到结尾截取所有的元素。利用这一点，可以容易的复制一个arr:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> aCopy = arr.slice();</span><br><span class="line">aCopy; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;]</span></span><br><span class="line">aCopy === arr; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-push和pop"><a href="#4-push和pop" class="headerlink" title="4.push和pop"></a>4.push和pop</h4><p>push()向arr的末尾添加若干元素，<br>pop()则把arr得最后一个元素删掉：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.push(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>); <span class="comment">// 返回Array新的长度: 4</span></span><br><span class="line">arr; <span class="comment">// [1, 2, &#x27;A&#x27;, &#x27;B&#x27;]</span></span><br><span class="line">arr.pop(); <span class="comment">// pop()返回&#x27;B&#x27;</span></span><br><span class="line">arr; <span class="comment">// [1, 2, &#x27;A&#x27;]</span></span><br><span class="line">arr.pop(); arr.pop(); arr.pop(); <span class="comment">// 连续pop 3次</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.pop(); <span class="comment">// 空数组继续pop不会报错，而是返回undefined</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-unshift和shift"><a href="#5-unshift和shift" class="headerlink" title="5.unshift和shift"></a>5.unshift和shift</h4><p>unshift()在arr头部添加若干元素。<br>shift()在arr的第一个元素删掉。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.unshift(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>); <span class="comment">// 返回Array新的长度: 4</span></span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, 1, 2]</span></span><br><span class="line">arr.shift(); <span class="comment">// &#x27;A&#x27;</span></span><br><span class="line">arr; <span class="comment">// [&#x27;B&#x27;, 1, 2]</span></span><br><span class="line">arr.shift(); arr.shift(); arr.shift(); <span class="comment">// 连续shift 3次</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.shift(); <span class="comment">// 空数组继续shift不会报错，而是返回undefined</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-sort"><a href="#6-sort" class="headerlink" title="6.sort"></a>6.sort</h4><p>sort()可以对当前arr进行排序，他会直接修改arr的元素位置，直接调用时，按照默认顺序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;A&#x27;</span>];</span><br><span class="line">arr.sort();</span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="7-reverse"><a href="#7-reverse" class="headerlink" title="7.reverse"></a>7.reverse</h4><p>reverse()把整个arr的元素给掉个个，颠倒一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>];</span><br><span class="line">arr.reverse(); </span><br><span class="line">arr; <span class="comment">// [&#x27;three&#x27;, &#x27;two&#x27;, &#x27;one&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="8-splice"><a href="#8-splice" class="headerlink" title="8.splice"></a>8.splice</h4><p>splice()可以从指定的索引开始删除若干个元素，然后从该位置添加若干个元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;Microsoft&#x27;</span>, <span class="string">&#x27;Apple&#x27;</span>, <span class="string">&#x27;Yahoo&#x27;</span>, <span class="string">&#x27;AOL&#x27;</span>, <span class="string">&#x27;Excite&#x27;</span>, <span class="string">&#x27;Oracle&#x27;</span>];</span><br><span class="line"><span class="comment">// 从索引2开始删除3个元素,然后再添加两个元素:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>); <span class="comment">// 返回删除的元素 [&#x27;Yahoo&#x27;, &#x27;AOL&#x27;, &#x27;Excite&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只删除,不添加:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">2</span>); <span class="comment">// [&#x27;Google&#x27;, &#x27;Facebook&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只添加,不删除:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>); <span class="comment">// 返回[],因为没有删除任何元素</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="9-concat"><a href="#9-concat" class="headerlink" title="9.concat"></a>9.concat</h4><p>concat()把当前的arr和另一个arr链接起来，并返回新的arr：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> added = arr.concat([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">added; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, 1, 2, 3]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>注意：concat()并没有修改当前的arr，反而返回了一个新的arr。<br>实际上，concat()方法可以接受任意个元素和arr，并自动吧arr拆开，然后全部添加到新的arr里</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">arr.concat(<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="10-join"><a href="#10-join" class="headerlink" title="10.join"></a>10.join</h4><p>join()把当前的arr的每个元素都用指定的字符串链接起来，然后返回链接后的字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join(<span class="string">&#x27;-&#x27;</span>); <span class="comment">// &#x27;A-B-C-1-2-3&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="11-多维数组"><a href="#11-多维数组" class="headerlink" title="11.多维数组"></a>11.多维数组</h4><p>如果数组的某个元素又是一个arr，则可以形成多维数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join(<span class="string">&#x27;-&#x27;</span>); <span class="comment">// &#x27;A-B-C-1-2-3&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="12-filter"><a href="#12-filter" class="headerlink" title="12.filter"></a>12.filter</h4><p>把超过数组中超过2000的去掉，filter主要是返回了一个新的数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1500</span>,<span class="number">1200</span>,<span class="number">2000</span>,<span class="number">2100</span>,<span class="number">1800</span>];</span><br><span class="line"><span class="keyword">var</span> newArr=arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item &lt; <span class="number">2000</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(newArr);</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:1767359165@qq.com">lihao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lh521.top/2021/01/02/javascript-shu-zu/">https://lh521.top/2021/01/02/javascript-shu-zu/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lh521.top" target="_blank">LH</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/js/">js</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/02/css-ding-wei-xiang-jie/"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-gj956e_1920x1080.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CSS定位详解</div></div></a></div><div class="next-post pull-right"><a href="/2021/01/02/htmldom/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HTMLDOM</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/01/14/es6-ji-chu-new-set/" title="ES6 基础new Set"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-6q7wow_1920x1080.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div><div class="title">ES6 基础new Set</div></div></a></div><div><a href="/2020/12/30/javascript-shu-zu-qu-chong/" title="JavaScript数组去重"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-gj956e_1920x1080.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-30</div><div class="title">JavaScript数组去重</div></div></a></div><div><a href="/2021/03/09/js-zhong-reduce-de-yong-fa/" title="js中reduce()的用法"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/0.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-09</div><div class="title">js中reduce()的用法</div></div></a></div><div><a href="/2021/01/05/shu-zu-bian-ping-hua/" title="数组扁平化"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-05</div><div class="title">数组扁平化</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">lihao</div><div class="author-info__description">千磨万击还坚劲，任尔东西南北风</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/LHNB521"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/LHNB521" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E7%BB%84"><span class="toc-text">JS变量、数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%8C%E5%8F%98%E9%87%8F"><span class="toc-text">一，变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">二.数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">三.字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-toUpperCase"><span class="toc-text">3.toUpperCase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-toLowerCase"><span class="toc-text">4.toLowerCase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-indexOf"><span class="toc-text">5.indexOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-substring"><span class="toc-text">6.substring</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E6%95%B0%E7%BB%84"><span class="toc-text">四.数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-indexOf"><span class="toc-text">2.indexOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-slice"><span class="toc-text">3.slice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-push%E5%92%8Cpop"><span class="toc-text">4.push和pop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-unshift%E5%92%8Cshift"><span class="toc-text">5.unshift和shift</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-sort"><span class="toc-text">6.sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-reverse"><span class="toc-text">7.reverse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-splice"><span class="toc-text">8.splice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-concat"><span class="toc-text">9.concat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-join"><span class="toc-text">10.join</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">11.多维数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-filter"><span class="toc-text">12.filter</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/03/22/css-xuan-ze-qi-xiang-jie-ji-quan-chong/" title="👴🏿CSS选择器详解及权重"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-q6gor5_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="👴🏿CSS选择器详解及权重"/></a><div class="content"><a class="title" href="/2021/03/22/css-xuan-ze-qi-xiang-jie-ji-quan-chong/" title="👴🏿CSS选择器详解及权重">👴🏿CSS选择器详解及权重</a><time datetime="2021-03-22T12:00:00.000Z" title="发表于 2021-03-22 12:00:00">2021-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/22/css-yang-shi-fu-dong/" title="🎈CSS样式----浮动"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-gj956e_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="🎈CSS样式----浮动"/></a><div class="content"><a class="title" href="/2021/03/22/css-yang-shi-fu-dong/" title="🎈CSS样式----浮动">🎈CSS样式----浮动</a><time datetime="2021-03-22T10:00:00.000Z" title="发表于 2021-03-22 10:00:00">2021-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-yi/" title="阿里云服务器Linux系统中搭建Java Web环境（一）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-6q7wow_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里云服务器Linux系统中搭建Java Web环境（一）"/></a><div class="content"><a class="title" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-yi/" title="阿里云服务器Linux系统中搭建Java Web环境（一）">阿里云服务器Linux系统中搭建Java Web环境（一）</a><time datetime="2021-03-17T14:14:00.000Z" title="发表于 2021-03-17 14:14:00">2021-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-er/" title="阿里云服务器Linux系统中搭建Java Web环境（二）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/wallhaven-vmzm88_1920x1080.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里云服务器Linux系统中搭建Java Web环境（二）"/></a><div class="content"><a class="title" href="/2021/03/17/a-li-yun-fu-wu-qi-linux-xi-tong-zhong-da-jian-java-web-huan-jing-er/" title="阿里云服务器Linux系统中搭建Java Web环境（二）">阿里云服务器Linux系统中搭建Java Web环境（二）</a><time datetime="2021-03-17T14:13:00.000Z" title="发表于 2021-03-17 14:13:00">2021-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/09/es6-shu-zhi-de-kuo-zhan/" title="ES6数值的扩展"><img data-lazy-src="https://cdn.jsdelivr.net/gh/521129/Jsd@main/img/0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6数值的扩展"/></a><div class="content"><a class="title" href="/2021/03/09/es6-shu-zhi-de-kuo-zhan/" title="ES6数值的扩展">ES6数值的扩展</a><time datetime="2021-03-09T10:44:54.000Z" title="发表于 2021-03-09 10:44:54">2021-03-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By lihao</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 3000);</script></div><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'lDobFwQLFcnz4yK58fQosgWV-gzGzoHsz',
+      appKey: 'UwqhtHozxle3aJU3a9emNAsa',
+      placeholder: '请留下你的足迹。。',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/bb/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
